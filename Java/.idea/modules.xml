@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/COMP2522.iml" filepath="$PROJECT_DIR$/COMP2522.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment1/comp2522-assignment1.iml" filepath="$PROJECT_DIR$/comp2522-assignment1/comp2522-assignment1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment10/comp2522-assignment10.iml" filepath="$PROJECT_DIR$/comp2522-assignment10/comp2522-assignment10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment2/comp2522-assignment2.iml" filepath="$PROJECT_DIR$/comp2522-assignment2/comp2522-assignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment3/comp2522-assignment3.iml" filepath="$PROJECT_DIR$/comp2522-assignment3/comp2522-assignment3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment4/comp2522-assignment4.iml" filepath="$PROJECT_DIR$/comp2522-assignment4/comp2522-assignment4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment5/comp2522-assignment5.iml" filepath="$PROJECT_DIR$/comp2522-assignment5/comp2522-assignment5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment7/comp2522-assignment7.iml" filepath="$PROJECT_DIR$/comp2522-assignment7/comp2522-assignment7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment8/comp2522-assignment8.iml" filepath="$PROJECT_DIR$/comp2522-assignment8/comp2522-assignment8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-assignment9/comp2522-assignment9.iml" filepath="$PROJECT_DIR$/comp2522-assignment9/comp2522-assignment9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-midterm/comp2522-midterm.iml" filepath="$PROJECT_DIR$/comp2522-midterm/comp2522-midterm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-project/comp2522-project.iml" filepath="$PROJECT_DIR$/comp2522-project/comp2522-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-samplemidterm/comp2522-samplemidterm.iml" filepath="$PROJECT_DIR$/comp2522-samplemidterm/comp2522-samplemidterm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/comp2522-winter2021/comp2522-winter2021.iml" filepath="$PROJECT_DIR$/comp2522-winter2021/comp2522-winter2021.iml" />
+    </modules>
+  </component>
+</project>

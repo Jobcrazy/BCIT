@@ -1,0 +1,4 @@
+
+if you make any assumptions for question1, please add them here:
+
+Both black and white remote inherit from RemoteModel

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="comp2522-assignment1" />
+    <orderEntry type="module" module-name="comp2522-assignment2" />
+    <orderEntry type="module" module-name="comp2522-assignment3" />
+    <orderEntry type="module" module-name="comp2522-assignment4" />
+    <orderEntry type="module" module-name="comp2522-assignment5" />
+    <orderEntry type="module" module-name="comp2522-samplemidterm" />
+    <orderEntry type="module" module-name="comp2522-midterm" />
+    <orderEntry type="module" module-name="comp2522-assignment7" />
+    <orderEntry type="module" module-name="comp2522-assignment8" />
+    <orderEntry type="module" module-name="comp2522-assignment9" />
+    <orderEntry type="module" module-name="comp2522-project" />
+    <orderEntry type="module" module-name="comp2522-assignment10" />
+  </component>
+</module>
