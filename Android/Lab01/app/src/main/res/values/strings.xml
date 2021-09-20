@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Reverse Text</string>
+    <string name="welcome">Hang Liu, A01173804</string>
+    <string name="enter_text">Enter Text:</string>
+    <string name="input_hint">Input some text</string>
+    <string name="error_input">You must enter text.</string>>
+</resources>
