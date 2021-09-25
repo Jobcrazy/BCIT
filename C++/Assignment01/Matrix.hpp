@@ -10,6 +10,8 @@
 class Matrix {
 private:
     std::vector<std::vector<double>> m_matrix;
+    int rowSize{0};
+    int columnSize{0};
 
 public:
     Matrix();
@@ -24,6 +26,16 @@ public:
 
     void clear();
 
+    void setValue(int rowIndex, int columnIndex, double value);
+
+    double getValue(int rowIndex, int columnIndex) const;
+
+    /*double operator <<() const;*/
+
+    bool operator==(const Matrix &m) const;
+
+    bool operator!=(const Matrix &m) const;
+
 private:
-    void initMatrix(int rowSize, int columnSize);
+    void initMatrix(int r, int c);
 };
