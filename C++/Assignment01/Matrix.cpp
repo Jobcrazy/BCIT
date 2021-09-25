@@ -3,6 +3,7 @@
 //
 
 #include <cmath>
+#include <algorithm>
 #include "Matrix.hpp"
 
 Matrix::Matrix() {
@@ -41,6 +42,10 @@ Matrix::Matrix(std::vector<double> &vData) {
             }
         }
     }
+}
+
+Matrix::Matrix(const Matrix &m) {
+    operator=(m);
 }
 
 void Matrix::initMatrix(int r, int c) {
@@ -114,6 +119,115 @@ bool Matrix::operator==(const Matrix &m) const {
 
 bool Matrix::operator!=(const Matrix &m) const {
     return !(*this == m);
+}
+
+void Matrix::add(double value = 1) {
+    for (int rowIndex = 0; rowIndex < rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < columnSize; ++columnIndex) {
+            m_matrix[rowIndex][columnIndex] += value;
+        }
+    }
+}
+
+Matrix &Matrix::operator++() {
+    add();
+    return *this;
+}
+
+Matrix Matrix::operator++(int) {
+    Matrix tmpMatrix(*this);
+    ++*this;
+    return tmpMatrix;
+}
+
+
+Matrix &Matrix::operator--() {
+    add(-1);
+    return *this;
+}
+
+Matrix Matrix::operator--(int) {
+    Matrix tmpMatrix(*this);
+    --*this;
+    return tmpMatrix;
+}
+
+Matrix &Matrix::operator=(const Matrix &m) {
+    clear();
+
+    rowSize = m.rowSize;
+    columnSize = m.columnSize;
+
+    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
+            m_matrix[rowIndex][columnIndex] = m.m_matrix[rowIndex][columnIndex];
+        }
+    }
+
+    return *this;
+}
+
+std::ostream &operator<<(std::ostream &cout, const Matrix &m) {
+    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
+            cout << m.m_matrix[rowIndex][columnIndex] << "\t";
+        }
+        cout << std::endl;
+    }
+    return cout;
+}
+
+void Matrix::matrixAdd(const Matrix &m, bool bAdd) {
+    // Check the size
+    if (rowSize != m.rowSize || columnSize != m.columnSize) {
+        throw std::runtime_error("Different matrix size");
+    }
+
+    // Perform addition
+    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
+            m_matrix[rowIndex][columnIndex] +=
+                    bAdd ? m.m_matrix[rowIndex][columnIndex] :
+                    0 - m.m_matrix[rowIndex][columnIndex];
+        }
+    }
+}
+
+Matrix Matrix::operator+(const Matrix &m) {
+    Matrix tmp(*this);
+    tmp.matrixAdd(m, true);
+    return tmp;
+}
+
+Matrix &Matrix::operator+=(const Matrix &m) {
+    matrixAdd(m, true);
+    return *this;
+}
+
+Matrix Matrix::operator-(const Matrix &m) {
+    Matrix tmp(*this);
+    tmp.matrixAdd(m, false);
+    return tmp;
+}
+
+Matrix &Matrix::operator-=(const Matrix &m) {
+    matrixAdd(m, false);
+    return *this;
+}
+
+void Matrix::multiply(const Matrix &m) {
+    // Todo: Matrix multiplication
+}
+
+Matrix Matrix::operator*(const Matrix &m) {
+    Matrix tmp(*this);
+    tmp.multiply(m);
+    return tmp;
+}
+
+Matrix &Matrix::operator*=(const Matrix &m) {
+    multiply(m);
+    return *this;
 }
 
 
