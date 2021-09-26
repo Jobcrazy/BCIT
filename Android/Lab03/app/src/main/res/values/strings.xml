@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Signup Form</string>
+
+    <!-- main activity -->
+    <string name="constraint">Constraint Layout</string>
+    <string name="linear">Linear Layout</string>
+    <string name="relative">Relative Layout</string>
+    <string name="grid">Grid Layout</string>
+    <string name="table">Table Layout</string>
+    <!-- sign up form -->
+    <string name="heading">Sign up for your 14-day Free Trial</string>
+    <string name="email_hint">Email Address</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="company_hint">Company</string>
+    <string name="company_size_hint">Company Size</string>
+    <string name="select_industry_hint">Select Industry</string>
+    <string name="phone_hint">Phone</string>
+    <string name="password_hint">Password</string>
+    <string name="blurb">Make sure your password has at least 8 characters and includes: one uppercase and lowercase letter, one number and one special character.</string>
+    <string name="button_create_account">Create Free Account</string>
+    <string name="name_id">Hang Liu - A01173804</string>
+    <array name="companySize">
+        <item>1-10</item>
+        <item>10-100</item>
+        <item>100-500</item>
+        <item>500-1000</item>
+        <item>1000-3000</item>
+        <item>3000+</item>
+    </array>
+
+    <array name="familyMember">
+        <item>father@home.com</item>
+        <item>mother@home.com</item>
+        <item>grandma@home.com</item>
+        <item>grandpa@home.com</item>
+    </array>
+
+    <array name="industry">
+        <item>banking</item>
+        <item>construction</item>
+        <item>education</item>
+        <item>energy</item>
+        <item>manufacturing</item>
+        <item>retail</item>
+        <item>travel</item>
+    </array>
+
+</resources>

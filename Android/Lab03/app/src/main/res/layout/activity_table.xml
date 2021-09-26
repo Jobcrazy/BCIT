@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    tools:context=".TableActivity">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="349dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="11dp"
+            android:gravity="center"
+            android:text="@string/heading"
+            android:textSize="@dimen/title_font_size"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/email_hint"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="13dp"
+            android:layout_weight="1"
+            android:hint="@string/first_name_hint"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/input_font_size" />
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="21dp"
+            android:layout_weight="1"
+            android:hint="@string/last_name_hint"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/etCompany"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="15dp"
+            android:hint="@string/company_hint"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="13dp"
+            android:hint="@string/phone_hint"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/pwPassword"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="17dp"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/tvBlurb"
+            android:layout_width="361dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="28dp"
+            android:paddingTop="30dp"
+            android:text="@string/blurb"
+            android:textSize="@dimen/input_font_size" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/btnCreateFreeAccount"
+            android:layout_width="350dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FF5722"
+            android:text="@string/button_create_account"
+            android:textColor="#FFFFFF" />
+    </TableRow>
+
+</TableLayout>

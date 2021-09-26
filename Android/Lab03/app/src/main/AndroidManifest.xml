@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.bcit.signupform">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SignupForm">
+        <activity
+            android:name=".TableActivity"
+            android:label="Table Layout"
+            android:exported="true" />
+        <activity
+            android:name=".GridActivity"
+            android:label="Grid Layout"
+            android:exported="true" />
+        <activity
+            android:name=".RelativeActivity"
+            android:label="Relative Layout"
+            android:exported="true" />
+        <activity
+            android:name=".LinearActivity"
+            android:label="Linear Layout"
+            android:exported="true" />
+        <activity
+            android:name=".ConstraintActivity"
+            android:label="Constraint Layout"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Layouts lab - signup forms"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
