@@ -6,22 +6,23 @@
 #include "Matrix.hpp"
 
 int main() {
-    std::cout << "Assignment 1, Hello, World!" << std::endl;
-    Matrix a;
-    Matrix b(8);
-    Matrix c(6, 8);
+    Matrix a(2, 3);
+    a.setValue(0,0,1);
+    a.setValue(0,1,2);
+    a.setValue(0,2,3);
+    a.setValue(1,0,4);
+    a.setValue(1,1,5);
+    a.setValue(1,2,6);
 
-    std::vector<double> v{1, 2, 3, 4};
-    Matrix d(v);
-    d.setValue(0, 0, 7);
-    std::cout << d.getValue(0, 0) << std::endl;
+    Matrix b(3, 2);
+    b.setValue(0,0,1);
+    b.setValue(0,1,2);
+    b.setValue(1,0,3);
+    b.setValue(1,1,4);
+    b.setValue(2,0,5);
+    b.setValue(2,1,6);
 
-    Matrix e;
-    std::cout << std::boolalpha << (a == b) << std::endl;
-    std::cout << std::boolalpha << (a == e) << std::endl;
-    std::cout << std::boolalpha << (a != e) << std::endl;
-
-    std::cout << d << std::endl;
+    Matrix c = a * b;
 
     return 0;
 }

@@ -215,18 +215,41 @@ Matrix &Matrix::operator-=(const Matrix &m) {
     return *this;
 }
 
-void Matrix::multiply(const Matrix &m) {
-    // Todo: Matrix multiplication
+Matrix Matrix::multiply(const Matrix &m) const {
+    // Check the size
+    if (columnSize != m.rowSize) {
+        throw std::runtime_error("size mismatched");
+    }
+
+    // Perform matrix multiplication
+    Matrix result(rowSize, m.columnSize);
+    int rowIndex{0}, colIndex{0}, mColIndex{0};
+    double sum{0};
+    while (rowIndex < rowSize) {
+        sum += m_matrix[rowIndex][colIndex] * m.m_matrix[colIndex][mColIndex];
+
+        ++colIndex;
+        if (colIndex >= columnSize) {
+            result.setValue(rowIndex, mColIndex, sum);
+            ++mColIndex;
+            sum = 0;
+            colIndex = 0;
+            if (mColIndex >= m.columnSize) {
+                ++rowIndex;
+                mColIndex = 0;
+            }
+        }
+    }
+
+    return result;
 }
 
 Matrix Matrix::operator*(const Matrix &m) {
-    Matrix tmp(*this);
-    tmp.multiply(m);
-    return tmp;
+    return multiply(m);
 }
 
 Matrix &Matrix::operator*=(const Matrix &m) {
-    multiply(m);
+    *this = multiply(m);
     return *this;
 }
 

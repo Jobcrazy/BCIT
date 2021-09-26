@@ -67,5 +67,5 @@ private:
 
     void matrixAdd(const Matrix &m, bool bAdd);
 
-    void multiply(const Matrix &m);
+    Matrix multiply(const Matrix &m) const;
 };
