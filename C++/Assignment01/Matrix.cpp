@@ -54,8 +54,8 @@ void Matrix::initMatrix(int r, int c) {
     }
 
     // Initialize the m_matrix
-    this->rowSize = r;
-    this->columnSize = c;
+    this->m_rowSize = r;
+    this->m_columnSize = c;
     for (int rowIndex = 0; rowIndex < r; ++rowIndex) {
         std::vector<double> row;
         for (int columnIndex = 0; columnIndex < c; ++columnIndex) {
@@ -79,7 +79,7 @@ Matrix::~Matrix() {
 void Matrix::setValue(int rowIndex, int columnIndex, double value) {
     // Check the range
     if (0 > rowIndex || 0 > columnIndex ||
-        rowIndex >= rowSize || columnIndex >= columnSize) {
+        rowIndex >= m_rowSize || columnIndex >= m_columnSize) {
         throw std::range_error("Parameters out of range");
     }
 
@@ -90,7 +90,7 @@ void Matrix::setValue(int rowIndex, int columnIndex, double value) {
 double Matrix::getValue(int rowIndex, int columnIndex) const {
     // Check the range
     if (0 > rowIndex || 0 > columnIndex ||
-        rowIndex >= rowSize || columnIndex >= columnSize) {
+        rowIndex >= m_rowSize || columnIndex >= m_columnSize) {
         throw std::range_error("Parameters out of range");
     }
 
@@ -100,13 +100,13 @@ double Matrix::getValue(int rowIndex, int columnIndex) const {
 
 bool Matrix::operator==(const Matrix &m) const {
     // Check the size
-    if (rowSize != m.rowSize || columnSize != m.columnSize) {
+    if (m_rowSize != m.m_rowSize || m_columnSize != m.m_columnSize) {
         return false;
     }
 
     // Compare the elements one by one
-    for (int rowIndex = 0; rowIndex < rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < columnSize; ++columnIndex) {
+    for (int rowIndex = 0; rowIndex < m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m_columnSize; ++columnIndex) {
             if (m_matrix[rowIndex][columnIndex] !=
                 m.m_matrix[rowIndex][columnIndex]) {
                 return false;
@@ -122,8 +122,8 @@ bool Matrix::operator!=(const Matrix &m) const {
 }
 
 void Matrix::add(double value = 1) {
-    for (int rowIndex = 0; rowIndex < rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < columnSize; ++columnIndex) {
+    for (int rowIndex = 0; rowIndex < m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m_columnSize; ++columnIndex) {
             m_matrix[rowIndex][columnIndex] += value;
         }
     }
@@ -155,11 +155,11 @@ Matrix Matrix::operator--(int) {
 Matrix &Matrix::operator=(const Matrix &m) {
     clear();
 
-    rowSize = m.rowSize;
-    columnSize = m.columnSize;
+    m_rowSize = m.m_rowSize;
+    m_columnSize = m.m_columnSize;
 
-    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
+    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
             m_matrix[rowIndex][columnIndex] = m.m_matrix[rowIndex][columnIndex];
         }
     }
@@ -167,25 +167,25 @@ Matrix &Matrix::operator=(const Matrix &m) {
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &cout, const Matrix &m) {
-    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
-            cout << m.m_matrix[rowIndex][columnIndex] << "\t";
+std::ostream &operator<<(std::ostream &out, const Matrix &m) {
+    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
+            out << m.m_matrix[rowIndex][columnIndex] << "\t";
         }
-        cout << std::endl;
+        out << std::endl;
     }
-    return cout;
+    return out;
 }
 
 void Matrix::matrixAdd(const Matrix &m, bool bAdd) {
     // Check the size
-    if (rowSize != m.rowSize || columnSize != m.columnSize) {
+    if (m_rowSize != m.m_rowSize || m_columnSize != m.m_columnSize) {
         throw std::runtime_error("Different matrix size");
     }
 
     // Perform addition
-    for (int rowIndex = 0; rowIndex < m.rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m.columnSize; ++columnIndex) {
+    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
             m_matrix[rowIndex][columnIndex] +=
                     bAdd ? m.m_matrix[rowIndex][columnIndex] :
                     0 - m.m_matrix[rowIndex][columnIndex];
@@ -217,24 +217,24 @@ Matrix &Matrix::operator-=(const Matrix &m) {
 
 Matrix Matrix::multiply(const Matrix &m) const {
     // Check the size
-    if (columnSize != m.rowSize) {
+    if (m_columnSize != m.m_rowSize) {
         throw std::runtime_error("size mismatched");
     }
 
     // Perform matrix multiplication
-    Matrix result(rowSize, m.columnSize);
+    Matrix result(m_rowSize, m.m_columnSize);
     int rowIndex{0}, colIndex{0}, mColIndex{0};
     double sum{0};
-    while (rowIndex < rowSize) {
+    while (rowIndex < m_rowSize) {
         sum += m_matrix[rowIndex][colIndex] * m.m_matrix[colIndex][mColIndex];
 
         ++colIndex;
-        if (colIndex >= columnSize) {
+        if (colIndex >= m_columnSize) {
             result.setValue(rowIndex, mColIndex, sum);
             ++mColIndex;
             sum = 0;
             colIndex = 0;
-            if (mColIndex >= m.columnSize) {
+            if (mColIndex >= m.m_columnSize) {
                 ++rowIndex;
                 mColIndex = 0;
             }
