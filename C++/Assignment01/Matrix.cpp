@@ -48,12 +48,12 @@ Matrix::Matrix(const Matrix &m) {
     m_rowSize = m.m_rowSize;
     m_columnSize = m.m_columnSize;
 
-    initMatrix(m_rowSize, m_columnSize);
-
     for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+        std::vector<double> row;
         for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
-            m_matrix[rowIndex][columnIndex] = m.m_matrix[rowIndex][columnIndex];
+            row.push_back(m.m_matrix[rowIndex][columnIndex]);
         }
+        m_matrix.push_back(row);
     }
 }
 
