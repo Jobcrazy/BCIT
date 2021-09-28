@@ -44,12 +44,6 @@ public:
 
     [[nodiscard]] double getValue(int rowIndex, int columnIndex) const;
 
-    friend std::ostream &operator<<(std::ostream &, const Matrix &);
-
-    bool operator==(const Matrix &m) const;
-
-    bool operator!=(const Matrix &m) const;
-
     Matrix &operator++();
 
     Matrix operator++(int);
@@ -60,15 +54,9 @@ public:
 
     Matrix &operator=(const Matrix &m);
 
-    Matrix operator+(const Matrix &m);
-
     Matrix &operator+=(const Matrix &m);
 
-    Matrix operator-(const Matrix &m);
-
     Matrix &operator-=(const Matrix &m);
-
-    Matrix operator*(const Matrix &m);
 
     Matrix &operator*=(const Matrix &m);
 
@@ -84,4 +72,16 @@ private:
     void matrixAdd(const Matrix &m, bool bAdd);
 
     Matrix multiply(const Matrix &m) const;
+
+    friend std::ostream &operator<<(std::ostream &, const Matrix &);
+
+    friend bool operator==(const Matrix &lhs, const Matrix &rhs);
+
+    friend bool operator!=(const Matrix &lhs, const Matrix &rhs);
+
+    friend Matrix operator+(Matrix lhs, const Matrix &rhs);
+
+    friend Matrix operator-(Matrix lhs, const Matrix &rhs);
+
+    friend Matrix operator*(Matrix lhs, const Matrix &rhs);
 };

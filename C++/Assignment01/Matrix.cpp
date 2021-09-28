@@ -98,17 +98,19 @@ double Matrix::getValue(int rowIndex, int columnIndex) const {
     return m_matrix[rowIndex][columnIndex];
 }
 
-bool Matrix::operator==(const Matrix &m) const {
+bool operator==(const Matrix &lhs, const Matrix &rhs) {
     // Check the size
-    if (m_rowSize != m.m_rowSize || m_columnSize != m.m_columnSize) {
+    if (lhs.m_rowSize != rhs.m_rowSize ||
+        lhs.m_columnSize != rhs.m_columnSize) {
         return false;
     }
 
     // Compare the elements one by one
-    for (int rowIndex = 0; rowIndex < m_rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m_columnSize; ++columnIndex) {
-            if (m_matrix[rowIndex][columnIndex] !=
-                m.m_matrix[rowIndex][columnIndex]) {
+    for (int rowIndex = 0; rowIndex < lhs.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0;
+             columnIndex < lhs.m_columnSize; ++columnIndex) {
+            if (lhs.m_matrix[rowIndex][columnIndex] !=
+                rhs.m_matrix[rowIndex][columnIndex]) {
                 return false;
             }
         }
@@ -117,8 +119,8 @@ bool Matrix::operator==(const Matrix &m) const {
     return true;
 }
 
-bool Matrix::operator!=(const Matrix &m) const {
-    return !(*this == m);
+bool operator!=(const Matrix &lhs, const Matrix &rhs) {
+    return !(lhs == rhs);
 }
 
 void Matrix::add(double value = 1) {
@@ -193,10 +195,9 @@ void Matrix::matrixAdd(const Matrix &m, bool bAdd) {
     }
 }
 
-Matrix Matrix::operator+(const Matrix &m) {
-    Matrix tmp(*this);
-    tmp.matrixAdd(m, true);
-    return tmp;
+Matrix operator+(Matrix lhs, const Matrix &rhs) {
+    lhs += rhs;
+    return lhs;
 }
 
 Matrix &Matrix::operator+=(const Matrix &m) {
@@ -204,10 +205,9 @@ Matrix &Matrix::operator+=(const Matrix &m) {
     return *this;
 }
 
-Matrix Matrix::operator-(const Matrix &m) {
-    Matrix tmp(*this);
-    tmp.matrixAdd(m, false);
-    return tmp;
+Matrix operator-(Matrix lhs, const Matrix &rhs) {
+    lhs -= rhs;
+    return lhs;
 }
 
 Matrix &Matrix::operator-=(const Matrix &m) {
@@ -244,8 +244,9 @@ Matrix Matrix::multiply(const Matrix &m) const {
     return result;
 }
 
-Matrix Matrix::operator*(const Matrix &m) {
-    return multiply(m);
+Matrix operator*(Matrix lhs, const Matrix &rhs) {
+    lhs *= rhs;
+    return lhs;
 }
 
 Matrix &Matrix::operator*=(const Matrix &m) {
