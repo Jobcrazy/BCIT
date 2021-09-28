@@ -45,7 +45,16 @@ Matrix::Matrix(std::vector<double> &vData) {
 }
 
 Matrix::Matrix(const Matrix &m) {
-    operator=(m);
+    m_rowSize = m.m_rowSize;
+    m_columnSize = m.m_columnSize;
+
+    initMatrix(m_rowSize, m_columnSize);
+
+    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
+            m_matrix[rowIndex][columnIndex] = m.m_matrix[rowIndex][columnIndex];
+        }
+    }
 }
 
 void Matrix::initMatrix(int r, int c) {
@@ -154,18 +163,23 @@ Matrix Matrix::operator--(int) {
     return tmpMatrix;
 }
 
-Matrix &Matrix::operator=(const Matrix &m) {
-    clear();
+void Matrix::swap(Matrix &other) {
+    std::swap(m_rowSize, other.m_rowSize);
+    std::swap(m_columnSize, other.m_columnSize);
 
-    m_rowSize = m.m_rowSize;
-    m_columnSize = m.m_columnSize;
-
-    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
-            m_matrix[rowIndex][columnIndex] = m.m_matrix[rowIndex][columnIndex];
+    for (int rowIndex = 0; rowIndex < m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0;
+             columnIndex < m_columnSize;
+             ++columnIndex) {
+            std::swap(m_matrix[rowIndex][columnIndex],
+                      other.m_matrix[rowIndex][columnIndex]);
         }
     }
+}
 
+Matrix &Matrix::operator=(Matrix other) {
+    // The swap() below is a member function of Matrix, not std::swap
+    swap(other);
     return *this;
 }
 

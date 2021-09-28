@@ -52,7 +52,7 @@ public:
 
     Matrix operator--(int);
 
-    Matrix &operator=(const Matrix &m);
+    Matrix &operator=(Matrix other);
 
     Matrix &operator+=(const Matrix &m);
 
@@ -72,6 +72,8 @@ private:
     void matrixAdd(const Matrix &m, bool bAdd);
 
     Matrix multiply(const Matrix &m) const;
+
+    void swap(Matrix &other);
 
     friend std::ostream &operator<<(std::ostream &, const Matrix &);
 
