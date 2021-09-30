@@ -28,6 +28,7 @@ int main() {
      */
     Animal *pB = new (std::nothrow) Bird();
     if(!pB){
+        delete pA;
         std::cout << "Failed to allocate memory" << std::endl;
         exit(1);
     }
@@ -40,6 +41,8 @@ int main() {
      */
     Animal *pC = new (std::nothrow) Canine(1, -1, -1);
     if(!pC){
+        delete pA;
+        delete pB;
         std::cout << "Failed to allocate memory" << std::endl;
         exit(1);
     }
