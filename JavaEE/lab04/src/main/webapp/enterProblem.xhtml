@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title><h:outputText value="#{msg.title}"/></title>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</h:head>
+<body>
+<h:form>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-group">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3><h:outputText value="#{msg.spr}"/></h3>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText value="#{msg.number}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText
+                                value="#{problemReport.number}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.date_of_issue}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText
+                                value="#{problemReport.dateIssue}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-horizontal col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label"
+                           style="text-align: left;">
+                        <label><h:outputText value="#{msg.name}"/></label>
+                    </label>
+                    <div class="col-sm-8">
+                        <h:inputText
+                                value="#{problemReport.project.name}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-horizontal col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label"
+                           style="text-align: left;">
+                        <label><h:outputText value="#{msg.originator}"/></label>
+                    </label>
+                    <div class="col-md-8">
+                        <h:inputText
+                                value="#{problemReport.originator}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="col-md-2 control-label"
+                   style="text-align: left;">
+                <label><h:outputText value="#{msg.problem_title}"/></label>
+            </label>
+            <div class="col-md-10">
+                <h:inputText
+                        value="#{problemReport.title}"
+                        styleClass="form-control"
+                />
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="col-md-2 control-label"
+                   style="text-align: left;">
+                <h:outputText value="#{msg.modules}"/>
+            </label>
+            <div class="col-md-10">
+                <h:inputText
+                        value="#{problemReport.modulesAffected}"
+                        styleClass="form-control"
+                />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-2 control-label"
+                       style="text-align: left;">
+                    <h:outputText value="#{msg.desc}"/>
+                </label>
+                <div class="checkbox">
+                    <label>
+                        <h:selectBooleanCheckbox
+                                value="#{problemReport.inScope}"
+                        /> <h:outputText value="#{msg.scoped}"/>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:inputTextarea class="form-control" rows="3"
+                                 value="#{problemReport.description}"
+                                 style="margin-left: 15px;margin-right: 15px;"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-2 control-label"
+                       style="text-align: left;">
+                    <h:outputText value="#{msg.recommend}"/>
+                </label>
+            </div>
+            <div class="form-group">
+                <h:inputTextarea class="form-control" rows="3"
+                                 value="#{problemReport.recommendedSolution}"
+                                 style="margin-left: 15px;margin-right: 15px;"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-8">
+                        <label><h:outputText value="#{msg.priority}"/></label>
+                    </div>
+                    <div class="col-md-4">
+                        <h:selectOneMenu value="#{problemReport.priority}"
+                                         styleClass="form-control">
+                            <f:selectItems
+                                    value="#{problemReport.priorityItems}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.severity}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:selectOneMenu value="#{problemReport.severity}"
+                                         styleClass="form-control">
+                            <f:selectItems
+                                    value="#{problemReport.priorityItems}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-8">
+                        <label><h:outputText value="#{msg.d_assigned}"/></label>
+                    </div>
+                    <div class="col-md-4">
+                        <h:inputText
+                                value="#{problemReport.dateAssigned}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.d_fix}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText
+                                value="#{problemReport.dateFixed}"
+                                styleClass="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h:commandButton value="#{msg.submit}"
+                             class="btn btn-primary"
+                             action="#{problemReport.submit}"/>
+        </div>
+
+        <div class="form-group">
+            <h:messages/>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+</h:form>
+</body>
+</html>
