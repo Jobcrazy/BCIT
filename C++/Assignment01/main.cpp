@@ -4,13 +4,8 @@
 #include <iostream>
 #include <vector>
 #include "Connectivity.hpp"
-#include "Matrix.hpp"
 
 int main() {
-    /*Connectivity c("connectivity.txt");*/
-    Matrix a(2);
-    Matrix b(2);
-    b.setValue(1, 1, 1);
-    std::cout << a + b << std::endl;
+    Connectivity c("connectivity.txt");
     return 0;
 }

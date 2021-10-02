@@ -8,7 +8,7 @@
 #include <vector>
 
 class Matrix {
-private:
+protected:
     std::vector<std::vector<double>> m_matrix;
     int m_rowSize{0};
     int m_columnSize{0};

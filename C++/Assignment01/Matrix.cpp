@@ -79,6 +79,7 @@ void Matrix::clear() {
         row.clear();
     }
     m_matrix.clear();
+    m_rowSize = m_columnSize = 0;
 }
 
 Matrix::~Matrix() {
