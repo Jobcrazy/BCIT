@@ -56,9 +56,21 @@ public:
 
     Matrix &operator+=(const Matrix &m);
 
+    friend Matrix operator+(Matrix lhs, const Matrix &rhs);
+
     Matrix &operator-=(const Matrix &m);
 
+    friend Matrix operator-(Matrix lhs, const Matrix &rhs);
+
     Matrix &operator*=(const Matrix &m);
+
+    friend Matrix operator*(Matrix lhs, const Matrix &rhs);
+
+    friend bool operator==(const Matrix &lhs, const Matrix &rhs);
+
+    friend bool operator!=(const Matrix &lhs, const Matrix &rhs);
+
+    friend std::ostream &operator<<(std::ostream &, const Matrix &);
 
 private:
     // Initialize a matrix in m_matrix
@@ -74,16 +86,4 @@ private:
     Matrix multiply(const Matrix &m) const;
 
     void swap(Matrix &other);
-
-    friend std::ostream &operator<<(std::ostream &, const Matrix &);
-
-    friend bool operator==(const Matrix &lhs, const Matrix &rhs);
-
-    friend bool operator!=(const Matrix &lhs, const Matrix &rhs);
-
-    friend Matrix operator+(Matrix lhs, const Matrix &rhs);
-
-    friend Matrix operator-(Matrix lhs, const Matrix &rhs);
-
-    friend Matrix operator*(Matrix lhs, const Matrix &rhs);
 };
