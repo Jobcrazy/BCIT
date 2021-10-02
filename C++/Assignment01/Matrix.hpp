@@ -34,6 +34,9 @@ public:
     // POST: vData has been converted to a squared matrix
     explicit Matrix(std::vector<double> &vData);
 
+    // The copy constructor
+    // PRE: m is another Matrix instance
+    // POST: all data from the other Matrix instance has been copied
     Matrix(const Matrix &m);
 
     // The deconstructor
