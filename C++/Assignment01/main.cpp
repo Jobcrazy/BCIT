@@ -5,7 +5,7 @@
 #include "PageRank.hpp"
 
 int main() {
-    PageRank pageRank("connectivity.txt");
+    PageRank pageRank("../connectivity.txt");
     std::cout << pageRank << std::endl;
     return 0;
 }
