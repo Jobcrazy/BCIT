@@ -71,16 +71,16 @@ void PageRank::updatePageRank() {
     }
 
     for (int row = 0; row < m_rowSize; ++row) {
-        m_matrix[row][0] = m_matrix[row][0] / sum * 100;
+        m_matrix[row][0] = m_matrix[row][0] / sum;
     }
 }
 
 std::ostream &operator<<(std::ostream &out, const PageRank &pr) {
-    constexpr int precision{2};
+    constexpr int precision{2}, coefficient{100};
     for (size_t row = 0; row < pr.m_matrix.size(); ++row) {
         out << "Page " << (char) ('A' + row) << ": "
             << std::setprecision(precision) << std::fixed
-            << pr.m_matrix[row][0] << "%" << std::endl;
+            << pr.m_matrix[row][0] * coefficient << "%" << std::endl;
     }
     return out;
 }
