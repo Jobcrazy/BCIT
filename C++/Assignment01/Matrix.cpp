@@ -5,6 +5,8 @@
 #include <cmath>
 #include <algorithm>
 #include "Matrix.hpp"
+#include "PageRank.hpp"
+
 
 Matrix::Matrix() {
     initMatrix(1, 1);
@@ -269,4 +271,13 @@ Matrix &Matrix::operator*=(const Matrix &m) {
     return *this;
 }
 
+Matrix operator*(Matrix lhs, double k) {
+    for (int rowIndex = 0; rowIndex < lhs.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0;
+             columnIndex < lhs.m_columnSize; ++columnIndex) {
+            lhs.m_matrix[rowIndex][columnIndex] *= k;
+        }
+    }
 
+    return lhs;
+}

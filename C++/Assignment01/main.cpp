@@ -2,10 +2,10 @@
 //Student# : A01173804, A01077938
 
 #include <iostream>
-#include <vector>
-#include "Connectivity.hpp"
+#include "PageRank.hpp"
 
 int main() {
-    Connectivity c("connectivity.txt");
+    PageRank pageRank("connectivity.txt");
+    std::cout << pageRank << std::endl;
     return 0;
 }

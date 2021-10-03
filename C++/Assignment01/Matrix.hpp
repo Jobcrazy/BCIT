@@ -107,16 +107,24 @@ public:
     friend Matrix operator-(Matrix lhs, const Matrix &rhs);
 
     // Multiple two Matrix and store the result
-    // PRE: other is another Matrix instance
+    // PRE: m is another Matrix instance
     // POST: the multiplication result is stored in the current instance
     // RETURN: the current instance
     Matrix &operator*=(const Matrix &m);
 
     // Multiple two Matrix and return the result
-    // PRE: other is another Matrix instance
+    // PRE: lhs is a Matrix instance
+    // PRE: rhs is another Matrix instance
     // POST: both matrix instances are unchanged
     // RETURN: a new Matrix instance that stores the multiplication result
     friend Matrix operator*(Matrix lhs, const Matrix &rhs);
+
+    // Multiple Matrix with a double and return the result
+    // PRE: lhs is a Matrix instance
+    // PRE: k is a double to multiply
+    // POST: both matrix instances are unchanged
+    // RETURN: a new Matrix instance that stores the multiplication result
+    friend Matrix operator*(Matrix lhs, double k);
 
     // Check two Matrix instances to see if they are the same
     // PRE: lhs is one Matrix instance
