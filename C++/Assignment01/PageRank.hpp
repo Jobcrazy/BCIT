@@ -10,17 +10,21 @@ class PageRank : public Connectivity {
 public:
     explicit PageRank(const std::string &filePath);
 
+    PageRank &operator=(const Matrix &m);
+
     // Overload operator << for output
     // PRE: out is the output stream
     // PRE: m is a Matrix instance
     // POST: the Matrix instance m is unchanged and printed
     // RETURN: the output stream
-    friend std::ostream &operator<<(std::ostream &out, const Matrix &m);
+    friend std::ostream &operator<<(std::ostream &out, const PageRank &pr);
 
 private:
     void updateImportance();
 
     void updateTransition();
 
-    void operator = (const Matrix &m);
+    void updateMarkov();
+
+    void updatePageRank();
 };

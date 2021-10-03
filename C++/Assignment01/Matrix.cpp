@@ -166,10 +166,12 @@ Matrix Matrix::operator--(int) {
     return tmpMatrix;
 }
 
-void Matrix::swap(Matrix &other) {
-    std::swap(m_rowSize, other.m_rowSize);
-    std::swap(m_columnSize, other.m_columnSize);
+void Matrix::swap(Matrix &current, Matrix &other) {
+    std::swap(current.m_rowSize, other.m_rowSize);
+    std::swap(current.m_columnSize, other.m_columnSize);
+    std::swap(current.m_matrix, other.m_matrix);
 
+    /*
     for (int rowIndex = 0; rowIndex < m_rowSize; ++rowIndex) {
         for (int columnIndex = 0;
              columnIndex < m_columnSize;
@@ -177,12 +179,12 @@ void Matrix::swap(Matrix &other) {
             std::swap(m_matrix[rowIndex][columnIndex],
                       other.m_matrix[rowIndex][columnIndex]);
         }
-    }
+    }*/
 }
 
 Matrix &Matrix::operator=(Matrix other) {
     // The swap() below is a member function of Matrix, not std::swap
-    swap(other);
+    swap(*this, other);
     return *this;
 }
 

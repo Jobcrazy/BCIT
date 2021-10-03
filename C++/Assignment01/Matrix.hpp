@@ -172,5 +172,5 @@ private:
     // Swap the data between the current instance and another one
     // PRE: other is another Matrix instance
     // POST: the data of the current and another instances has been exchanged
-    void swap(Matrix &other);
+    void swap(Matrix &current, Matrix &other);
 };

@@ -3,10 +3,13 @@
 //
 
 #include "PageRank.hpp"
+#include <iomanip>
 
 PageRank::PageRank(const std::string &filePath) : Connectivity(filePath) {
     updateImportance();
     updateTransition();
+    updateMarkov();
+    updatePageRank();
 }
 
 void PageRank::updateImportance() {
@@ -38,13 +41,47 @@ void PageRank::updateTransition() {
         }
     }
 
-    *this =  (*this) * follow + teleportation * notFollow;
+    *this = (*this) * follow + teleportation * notFollow;
 }
 
-void PageRank::operator=(const Matrix &m) {
+PageRank &PageRank::operator=(const Matrix &m) {
+    this->Matrix::operator=(m);
+    return *this;
+}
+
+void PageRank::updateMarkov() {
+    Matrix rank(m_columnSize, 1);
+    for (int row = 0; row < m_columnSize; ++row) {
+        rank.setValue(row, 0, 1.0);
+    }
+
+    Matrix result(m_columnSize, 1);
+    while (result != rank) {
+        result = rank;
+        rank = *this * rank;
+    }
+
+    *this = result;
+}
+
+void PageRank::updatePageRank() {
+    double sum = 0;
     for (int row = 0; row < m_rowSize; ++row) {
-        for (int column = 0; column < m_columnSize; ++column) {
-            m_matrix[row][column] = m.getValue(row, column);
-        }
+        sum += m_matrix[row][0];
+    }
+
+    for (int row = 0; row < m_rowSize; ++row) {
+        m_matrix[row][0] = m_matrix[row][0] / sum * 100;
     }
 }
+
+std::ostream &operator<<(std::ostream &out, const PageRank &pr) {
+    constexpr int precision{2};
+    for (size_t row = 0; row < pr.m_matrix.size(); ++row) {
+        out << "Page " << (char) ('A' + row) << ": "
+            << std::setprecision(precision) << std::fixed
+            << pr.m_matrix[row][0] << "%" << std::endl;
+    }
+    return out;
+}
+
