@@ -5,7 +5,12 @@
 #include "PageRank.hpp"
 
 int main() {
-    PageRank pageRank("../connectivity.txt");
-    std::cout << pageRank << std::endl;
+    try {
+        PageRank pageRank("../connectivity.txt");
+        std::cout << pageRank << std::endl;
+    }catch (const std::exception & e){
+        std::cout << e.what() << std::endl;
+    }
+
     return 0;
 }
