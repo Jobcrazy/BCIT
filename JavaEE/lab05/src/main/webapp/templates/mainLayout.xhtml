@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title><ui:insert name="windowTitle"/></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <style type="text/css">
+        input {
+            width: 100%;
+        }
+    </style>
+</h:head>
+<h:body>
+    <ui:debug hotkey="q"/>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="row">
+            <ui:insert name="header">
+                <ui:include src="/sections/header.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <ui:insert name="sideBar">
+                    <ui:include src="/sections/sideBar.xhtml"/>
+                </ui:insert>
+            </div>
+
+            <div class="col-md-10">
+                <ui:insert name="content">
+                    <h1>Here should be the main content.</h1>
+                </ui:insert>
+            </div>
+        </div>
+
+        <div class="row">
+            <ui:insert name="footer">
+                <ui:include src="/sections/footer.xhtml"/>
+            </ui:insert>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+</h:body>
+</html>

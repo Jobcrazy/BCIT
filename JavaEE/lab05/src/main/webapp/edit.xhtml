@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templates/mainLayout.xhtml">
+    <ui:define name="windowTitle">
+        <h:outputText>#{msg.editTitle}</h:outputText>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:dataTable value="#{customers.customers}" var="item"
+                         styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.edit}"/>
+                    </f:facet>
+                    <h:selectBooleanCheckbox value="#{item.editable}"
+                                             onclick="submit()"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.firstName}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.firstName}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.firstName}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.middleName}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.middleName}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.middleName}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.lastName}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.lastName}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.lastName}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.address1}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.address1}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.address1}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.address2}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.address2}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.address2}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.city}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.city}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.city}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.state}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.state}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.state}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.zipCode}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.zipCode}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.zipCode}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.phone}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.phone}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.phone}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg.email}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.email}"
+                                  rendered="#{not item.editable}"/>
+                    <h:inputText value="#{item.email}"
+                                 rendered="#{item.editable}"/>
+                </h:column>
+
+                <h:column>
+                    <h:commandButton type="submit"
+                                     class="btn btn-primary btn-sm"
+                                     action="#{customers.save}"
+                                     value="Save"
+                                     rendered="#{item.editable}"/>
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
