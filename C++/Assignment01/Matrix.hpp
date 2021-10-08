@@ -35,9 +35,9 @@ public:
     explicit Matrix(std::vector<double> &vData);
 
     // The copy constructor
-    // PRE: m is another Matrix instance
+    // PRE: other is another Matrix instance
     // POST: all data from the other Matrix instance has been copied
-    Matrix(const Matrix &m);
+    Matrix(const Matrix &other);
 
     // The deconstructor
     // POST: Clean up in m_matrix
@@ -86,7 +86,7 @@ public:
     // PRE: other is another Matrix instance
     // POST: the addition result is stored in the current instance
     // RETURN: the current Matrix instance
-    Matrix &operator+=(const Matrix &m);
+    Matrix &operator+=(const Matrix &other);
 
     // Add two Matrix and return the result
     // PRE: other is another Matrix instance
@@ -95,10 +95,10 @@ public:
     friend Matrix operator+(Matrix lhs, const Matrix &rhs);
 
     // Subtract current instance by another instance and store the result
-    // PRE: m is another Matrix instance
+    // PRE: other is another Matrix instance
     // POST: the subtraction result is stored in the current instance
     // RETURN: the current Matrix instance
-    Matrix &operator-=(const Matrix &m);
+    Matrix &operator-=(const Matrix &other);
 
     // Subtract current instance by another instance and return the result
     // PRE: m is another Matrix instance
@@ -107,10 +107,10 @@ public:
     friend Matrix operator-(Matrix lhs, const Matrix &rhs);
 
     // Multiple two Matrix and store the result
-    // PRE: m is another Matrix instance
+    // PRE: other is another Matrix instance
     // POST: the multiplication result is stored in the current instance
     // RETURN: the current instance
-    Matrix &operator*=(const Matrix &m);
+    Matrix &operator*=(const Matrix &other);
 
     // Multiple two Matrix and return the result
     // PRE: lhs is a Matrix instance
@@ -142,10 +142,10 @@ public:
 
     // Overload operator << for output
     // PRE: out is the output stream
-    // PRE: m is a Matrix instance
-    // POST: the Matrix instance m is unchanged and printed
+    // PRE: matrix is a Matrix instance
+    // POST: the Matrix instance matrix is unchanged and printed
     // RETURN: the output stream
-    friend std::ostream &operator<<(std::ostream &out, const Matrix &m);
+    friend std::ostream &operator<<(std::ostream &out, const Matrix &matrix);
 
 private:
     // Initialize a matrix in m_matrix
@@ -165,9 +165,9 @@ private:
     void matrixAdd(const Matrix &m, bool bAdd);
 
     // Multiply the current Matrix by another Matrix
-    // PRE: m is another Matrix instance
+    // PRE: other is another Matrix instance
     // POST: current Matrix instance has been updated
-    [[nodiscard]] Matrix multiply(const Matrix &m) const;
+    [[nodiscard]] Matrix multiply(const Matrix &other) const;
 
     // Swap the data between the current instance and another one
     // PRE: other is another Matrix instance

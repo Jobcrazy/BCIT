@@ -46,14 +46,14 @@ Matrix::Matrix(std::vector<double> &vData) {
     }
 }
 
-Matrix::Matrix(const Matrix &m) {
-    m_rowSize = m.m_rowSize;
-    m_columnSize = m.m_columnSize;
+Matrix::Matrix(const Matrix &other) {
+    m_rowSize = other.m_rowSize;
+    m_columnSize = other.m_columnSize;
 
-    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
+    for (int rowIndex = 0; rowIndex < other.m_rowSize; ++rowIndex) {
         std::vector<double> row;
-        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
-            row.push_back(m.m_matrix[rowIndex][columnIndex]);
+        for (int columnIndex = 0; columnIndex < other.m_columnSize; ++columnIndex) {
+            row.push_back(other.m_matrix[rowIndex][columnIndex]);
         }
         m_matrix.push_back(row);
     }
@@ -188,10 +188,10 @@ Matrix &Matrix::operator=(Matrix other) {
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, const Matrix &m) {
-    for (int rowIndex = 0; rowIndex < m.m_rowSize; ++rowIndex) {
-        for (int columnIndex = 0; columnIndex < m.m_columnSize; ++columnIndex) {
-            out << m.m_matrix[rowIndex][columnIndex] << "\t";
+std::ostream &operator<<(std::ostream &out, const Matrix &matrix) {
+    for (int rowIndex = 0; rowIndex < matrix.m_rowSize; ++rowIndex) {
+        for (int columnIndex = 0; columnIndex < matrix.m_columnSize; ++columnIndex) {
+            out << matrix.m_matrix[rowIndex][columnIndex] << "\t";
         }
         out << std::endl;
     }
@@ -219,8 +219,8 @@ Matrix operator+(Matrix lhs, const Matrix &rhs) {
     return lhs;
 }
 
-Matrix &Matrix::operator+=(const Matrix &m) {
-    matrixAdd(m, true);
+Matrix &Matrix::operator+=(const Matrix &other) {
+    matrixAdd(other, true);
     return *this;
 }
 
@@ -229,23 +229,23 @@ Matrix operator-(Matrix lhs, const Matrix &rhs) {
     return lhs;
 }
 
-Matrix &Matrix::operator-=(const Matrix &m) {
-    matrixAdd(m, false);
+Matrix &Matrix::operator-=(const Matrix &other) {
+    matrixAdd(other, false);
     return *this;
 }
 
-Matrix Matrix::multiply(const Matrix &m) const {
+Matrix Matrix::multiply(const Matrix &other) const {
     // Check the size
-    if (m_columnSize != m.m_rowSize) {
+    if (m_columnSize != other.m_rowSize) {
         throw std::runtime_error("size mismatched");
     }
 
     // Perform matrix multiplication
-    Matrix result(m_rowSize, m.m_columnSize);
+    Matrix result(m_rowSize, other.m_columnSize);
     int rowIndex{0}, colIndex{0}, mColIndex{0};
     double sum{0};
     while (rowIndex < m_rowSize) {
-        sum += m_matrix[rowIndex][colIndex] * m.m_matrix[colIndex][mColIndex];
+        sum += m_matrix[rowIndex][colIndex] * other.m_matrix[colIndex][mColIndex];
 
         ++colIndex;
         if (colIndex >= m_columnSize) {
@@ -253,7 +253,7 @@ Matrix Matrix::multiply(const Matrix &m) const {
             ++mColIndex;
             sum = 0;
             colIndex = 0;
-            if (mColIndex >= m.m_columnSize) {
+            if (mColIndex >= other.m_columnSize) {
                 ++rowIndex;
                 mColIndex = 0;
             }
@@ -268,8 +268,8 @@ Matrix operator*(Matrix lhs, const Matrix &rhs) {
     return lhs;
 }
 
-Matrix &Matrix::operator*=(const Matrix &m) {
-    *this = multiply(m);
+Matrix &Matrix::operator*=(const Matrix &other) {
+    *this = multiply(other);
     return *this;
 }
 
