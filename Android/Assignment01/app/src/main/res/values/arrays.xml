@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opensource_projects">
+        <item>Vue</item>
+        <item>React</item>
+        <item>Tensorflow</item>
+        <item>Bootstrap</item>
+        <item>Flutter</item>
+    </string-array>
+</resources>

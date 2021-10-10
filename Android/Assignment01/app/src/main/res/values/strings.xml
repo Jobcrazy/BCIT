@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Liu_Hang</string>
+    <string name="main_hint">Select a Project to Enter</string>
+    <string name="main_enter">Enter</string>
+    <string name="student_name">Hang Liu, A01173804, Set A</string>
+    <string name="default_name">Login</string>
+</resources>
