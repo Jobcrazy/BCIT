@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Life</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="student_name">Hang Liu</string>
+    <string name="student_id">A01173804</string>
+    <string name="born">Xinzhou Hospital, Wuhan, China</string>
+    <string name="school">Xinzhou Senior High School</string>
+</resources>
