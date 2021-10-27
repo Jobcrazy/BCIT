@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:metadata>
+    <f:event type="preRenderView"
+             listener="#{tController.employeeController.checkLogin}"/>
+    <!--<f:viewAction action="#{tController.employeeController.checkLogin}" onPostback="false"/>-->
+</f:metadata>
+<f:view>
+    <h:head>
+        <title><h:outputText value="#{msg.title}"/></title>
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="primeflex.css"/>
+    </h:head>
+
+    <div class="row">
+        <ui:insert name="header">
+            <ui:include src="../sections/header.xhtml"/>
+        </ui:insert>
+    </div>
+
+    <div class="row">
+        <div class="" style="min-width: 220px;
+                height: 100%;
+                margin-bottom:20px;
+                float: left;
+                margin-left: 15px;">
+            <ui:insert name="sidebar">
+                <ui:include src="../sections/sidebar.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <div style="overflow: hidden;">
+            <ui:insert name="content">
+                <h:outputText value="#{msg.content}"/>
+            </ui:insert>
+        </div>
+        <br style="clear:both;"/>
+    </div>
+
+    <div class="row">
+        <ui:insert name="footer">
+            <ui:include src="../sections/footer.xhtml"/>
+        </ui:insert>
+    </div>
+</f:view>
+</html>
