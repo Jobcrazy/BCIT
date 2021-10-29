@@ -6,16 +6,16 @@
 
 class Dictionary;
 
-class Menu {
+class Application {
 private:
-    enum {PRINT = 1, FIND, ADD, EXIT};
+    enum {DEFAULT, PRINT, FIND, ADD, EXIT, TERM};
     Dictionary &dict;
     std::vector<std::string> menuItems;
 
 public:
     // The constructor
     // PRE: dictionary is the Dictionary instance holding the data
-    explicit Menu(Dictionary &dictionary);
+    explicit Application(Dictionary &dictionary);
 
     // Run a infinite loop until the user choose to exit
     void run();

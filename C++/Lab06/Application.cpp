@@ -4,10 +4,10 @@
 
 #include <iostream>
 #include <limits>
-#include "Menu.hpp"
+#include "Application.hpp"
 #include "Dictionary.hpp"
 
-Menu::Menu(Dictionary &dictionary) : dict(dictionary) {
+Application::Application(Dictionary &dictionary) : dict(dictionary) {
     const std::string MENU_ITEM_PRINT{"1 - Print dictionary"};
     const std::string MENU_ITEM_FIND{"2 - Find word definition"};
     const std::string MENU_ITEM_ADD{"3 - Enter new word and definition"};
@@ -19,9 +19,9 @@ Menu::Menu(Dictionary &dictionary) : dict(dictionary) {
     menuItems.push_back(MENU_ITEM_EXIT);
 }
 
-void Menu::run() {
-    int choice = 0;
-    while (choice < (int) menuItems.size()) {
+void Application::run() {
+    int choice = DEFAULT;
+    while (choice != TERM) {
         printMenu();
 
         std::cin >> choice;
@@ -30,7 +30,7 @@ void Menu::run() {
     }
 }
 
-void Menu::printMenu() const {
+void Application::printMenu() const {
     for (const auto &item: menuItems) {
         std::cout << item << std::endl;
     }
@@ -38,7 +38,7 @@ void Menu::printMenu() const {
     std::cout << "Please enter you choice:";
 }
 
-void Menu::processChoice(int &choice) {
+void Application::processChoice(int &choice) {
     switch (choice) {
         case PRINT:
             printWords();
@@ -50,16 +50,16 @@ void Menu::processChoice(int &choice) {
             findWord();
             return;
         case EXIT:
-            choice++;
+            choice = TERM;
             return;
         default:
-            choice = 0;
+            choice = DEFAULT;
             std::cout << "Wrong choice, choose again." << std::endl;
             return;
     }
 }
 
-void Menu::findWord() const {
+void Application::findWord() const {
     std::string word;
 
     std::cout << "Please input a word:";
@@ -73,7 +73,7 @@ void Menu::findWord() const {
     }
 }
 
-void Menu::addWord() {
+void Application::addWord() {
     bool added = false;
 
     while (!added) {
@@ -95,7 +95,7 @@ void Menu::addWord() {
     }
 }
 
-void Menu::resetCin() {
+void Application::resetCin() {
     std::cin.sync();
     std::cin.clear();
 
@@ -104,7 +104,7 @@ void Menu::resetCin() {
                     END_OF_LINE);
 }
 
-void Menu::printWords() const {
+void Application::printWords() const {
     std::map<std::string, std::string> results = dict.getAllWords();
 
     for (const auto &it: results) {

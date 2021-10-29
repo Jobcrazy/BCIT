@@ -3,19 +3,22 @@
 
 #include <iostream>
 #include "Dictionary.hpp"
-#include "Menu.hpp"
+#include "Application.hpp"
+
+#ifndef _NDEBUG
+#include "UnitTests.hpp"
+#endif
 
 int main() {
 #ifndef _NDEBUG
-    #include "UnitTests.hpp"
     UnitTests::unitTests();
 #endif
 
     try {
         Dictionary dict{"../dictionary.txt"};
-        Menu menu{dict};
+        Application app{dict};
 
-        menu.run();
+        app.run();
     }
     catch (const std::exception &e) {
         std::cout << e.what() << std::endl;
