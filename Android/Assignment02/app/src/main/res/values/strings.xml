@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Le_Liu</string>
+    <string name="title">BC COVID STATUS</string>
+    <string name="email">Email</string>
+    <string name="email_hint">Enter you email</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter you password</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="regHint">Your account will be registered</string>
+    <string name="regHint2">on your first login</string>
+    <string name="regHint_landscape">Your account will be registered on your first login</string>
+    <string name="hang">Hang Liu A01173804</string>
+    <string name="kath">Le A88888888</string>
+    <string name="case_by_month">Case by Month and Year</string>
+    <string name="case_by_health">Case by Health Authority</string>
+    <string name="case_by_gender">Case by Gender</string>
+    <string name="case_by_age">Case by Age Group</string>
+    <string name="counting">Counting...</string>
+    <string name="find">Find</string>
+    <string name="yearHint">Enter Year</string>
+    <string name="monthHint">Enter Month</string>
+    <string name="id">ID: </string>
+    <string name="age">Age Group: </string>
+    <string name="sex">Gender: </string>
+    <string name="classification">Classification Reported: </string>
+    <string name="HA">Health Authority: </string>
+    <string name="date">Report Date: </string>
+</resources>
