@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="inventory-jpa">
+        <jta-data-source>java:jboss/datasources/inventory</jta-data-source>
+        <class>com.kaka888.model.Supplier</class>
+
+        <properties>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

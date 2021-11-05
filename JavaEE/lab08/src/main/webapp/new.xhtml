@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>New Supplier</title>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</h:head>
+<h:body>
+    <div class="text-center">
+        <h1>Add a Supplier</h1>
+    </div>
+    <div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div>
+                <div style="margin-bottom: 15px">
+                    <h:form class="form-inline">
+                        <h:button type="submit"
+                                  outcome="index"
+                                  value="&#60; Back"
+                                  styleClass="btn btn-primary"
+                                  style="margin-left: 5px"/>
+                    </h:form>
+                </div>
+            </div>
+            <h:form styleClass="form-horizontal">
+                <div class="form-group">
+                    <label for="Name"
+                           class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="Name"
+                                     value="#{supplierController.supplierToAdd.name}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactName"
+                           class="col-sm-2 control-label">Contact Name</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="contactName"
+                                     value="#{supplierController.supplierToAdd.contactName}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Title"
+                           class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="Title"
+                                     value="#{supplierController.supplierToAdd.contactTitle}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Address"
+                           class="col-sm-2 control-label">Address</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="Address"
+                                     value="#{supplierController.supplierToAdd.address}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="City"
+                           class="col-sm-2 control-label">City</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="City"
+                                     value="#{supplierController.supplierToAdd.city}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="PostalCode"
+                           class="col-sm-2 control-label">PostalCode</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="PostalCode"
+                                     value="#{supplierController.supplierToAdd.postalCode}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="StateOrProvince"
+                           class="col-sm-2 control-label">StateOrProvince</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="StateOrProvince"
+                                     value="#{supplierController.supplierToAdd.stateOrProvince}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Country"
+                           class="col-sm-2 control-label">Country</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="Country"
+                                     value="#{supplierController.supplierToAdd.country}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="PhoneNumber"
+                           class="col-sm-2 control-label">PhoneNumber</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="PhoneNumber"
+                                     value="#{supplierController.supplierToAdd.phoneNumber}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="FaxNumber"
+                           class="col-sm-2 control-label">FaxNumber</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="FaxNumber"
+                                     value="#{supplierController.supplierToAdd.faxNumber}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="PaymentTerms"
+                           class="col-sm-2 control-label">PaymentTerms</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="PaymentTerms"
+                                     value="#{supplierController.supplierToAdd.paymentTerms}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="EmailAddress"
+                           class="col-sm-2 control-label">EmailAddress</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="EmailAddress"
+                                     value="#{supplierController.supplierToAdd.emailAddress}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Notes"
+                           class="col-sm-2 control-label">Notes</label>
+                    <div class="col-sm-10">
+                        <h:inputText class="form-control"
+                                     id="Notes"
+                                     value="#{supplierController.supplierToAdd.notes}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Submit"
+                           class="col-sm-2 control-label"/>
+                    <div class="col-sm-10">
+                        <h:commandButton value="Add" id="Submit"
+                                         action="#{supplierController.persistSupplier}"
+                                         styleClass="btn btn-primary"/>
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</h:body>
+</html>

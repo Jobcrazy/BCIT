@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Suppliers</title>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</h:head>
+<h:body>
+    <div class="text-center">
+        <h1>Supplier List</h1>
+    </div>
+    <div>
+        <div class="col-md-10" style="margin-bottom: 15px">
+            <h:form class="form-inline">
+                <div class="form-group">
+                    <h:inputText class="form-control"
+                                 value="#{supplierController.keyWord}"/>
+                </div>
+                <h:commandButton type="submit"
+                                 action="#{supplierController.search}"
+                                 value="Search"
+                                 styleClass="btn btn-primary"
+                                 style="margin-left: 5px"/>
+            </h:form>
+        </div>
+        <div class="col-md-2 text-right">
+            <h:form>
+                <h:commandButton value="Add"
+                                 action="#{supplierController.addSupplier()}"
+                                 styleClass="btn btn-primary"/>
+            </h:form>
+        </div>
+    </div>
+    <h:form class="center-block">
+        <h:dataTable value="#{supplierController.supplierManager.all}"
+                     var="supplier"
+                     styleClass="table table-striped">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ID" style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.id}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Contact Name"
+                                  style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.contactName}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Contact Title"
+                                  style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.contactTitle}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Address" style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.address}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="City" style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.city}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Zip Code"
+                                  style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.postalCode}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Country" style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.country}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Phone Number"
+                                  style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.phoneNumber}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Fax Number" style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.faxNumber}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="PaymentTerms"
+                                  style="font-weight: bold"/>
+                </f:facet>
+                <h:outputText value="#{supplier.paymentTerms}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Action" style="font-weight: bold"/>
+                </f:facet>
+                <h:commandLink value="Edit"
+                               action="#{supplierController.editSupplier(supplier)}"/>
+                &nbsp;
+                <h:commandLink value="Delete"
+                               action="#{supplierController.deleteSupplier(supplier)}"/>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title><h:outputText value="#{msg.title}"/></title>
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<body>
+<h:form id="Form">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-group">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3><h:outputText value="#{msg.spr}"/></h3>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText value="#{msg.number}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText
+                                id="number"
+                                value="#{problemReport.number}"
+                                styleClass="form-control"
+                                required="true"
+                                converter="javax.faces.Integer"
+                        />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="number" styleClass="error"/>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.date_of_issue}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText
+                                id="dateIssue"
+                                value="#{problemReport.dateIssue}"
+                                styleClass="form-control"
+                                required="true">
+
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="dateIssue" styleClass="error"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-horizontal col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label"
+                           style="text-align: left;">
+                        <label><h:outputText value="#{msg.name}"/></label>
+                    </label>
+                    <div class="col-sm-8">
+                        <h:inputText
+                                id="name"
+                                value="#{problemReport.project.name}"
+                                styleClass="form-control"
+                                required="true"
+                        />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="name" styleClass="error"/>
+                </div>
+            </div>
+
+            <div class="form-horizontal col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label"
+                           style="text-align: left;">
+                        <label><h:outputText value="#{msg.originator}"/></label>
+                    </label>
+                    <div class="col-md-8">
+                        <h:inputText
+                                id="originator"
+                                value="#{problemReport.originator}"
+                                styleClass="form-control"
+                                required="true"
+                        />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="originator" styleClass="error"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="col-md-2 control-label"
+                   style="text-align: left;">
+                <label><h:outputText value="#{msg.problem_title}"/></label>
+            </label>
+            <div class="col-md-10">
+                <h:inputText
+                        id="title"
+                        value="#{problemReport.title}"
+                        styleClass="form-control"
+                        required="true"
+                />
+            </div>
+        </div>
+        <div class="row form-group">
+            <h:message for="title" styleClass="error"/>
+        </div>
+
+        <div class="row form-group">
+            <label class="col-md-2 control-label"
+                   style="text-align: left;">
+                <h:outputText value="#{msg.modules}"/>
+            </label>
+            <div class="col-md-10">
+                <h:inputText
+                        id="modules"
+                        value="#{problemReport.modulesAffected}"
+                        styleClass="form-control"
+                        required="true"
+                />
+            </div>
+        </div>
+        <div class="row form-group">
+            <h:message for="modules" styleClass="error"/>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-2 control-label"
+                       style="text-align: left;">
+                    <h:outputText value="#{msg.desc}"/>
+                </label>
+                <div class="checkbox">
+                    <label>
+                        <h:selectBooleanCheckbox
+                                value="#{problemReport.inScope}"
+                        /> <h:outputText value="#{msg.scoped}"/>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:inputTextarea class="form-control" rows="3" required="true"
+                                 id="decription"
+                                 value="#{problemReport.description}"
+                                 style="margin-left: 15px;margin-right: 15px;"/>
+            </div>
+            <div class="row form-group">
+                <h:message for="decription" styleClass="errorBlock"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-12 control-label"
+                       style="text-align: left;">
+                    <h:outputText value="#{msg.recommend}"/>
+                </label>
+            </div>
+            <div class="form-group">
+                <h:inputTextarea id="recommend" class="form-control" rows="3"
+                                 required="true"
+                                 value="#{problemReport.recommendedSolution}"
+                                 style="margin-left: 15px;margin-right: 15px;"/>
+            </div>
+            <div class="row form-group">
+                <h:message for="recommend" styleClass="errorBlock"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-8">
+                        <label><h:outputText value="#{msg.priority}"/></label>
+                    </div>
+                    <div class="col-md-4">
+                        <h:selectOneMenu id="priority"
+                                         value="#{problemReport.priority}"
+                                         styleClass="form-control"
+                                         required="true"
+                                         validator="#{problemReport.validatePriority}">
+                            <f:selectItems
+                                    value="#{problemReport.priorityItems}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="priority" styleClass="error"/>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.severity}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:selectOneMenu id="severity" value="#{problemReport.severity}"
+                                         required="true"
+                                         styleClass="form-control"
+                                         validator="#{problemReport.validateSeverity}">
+                            <f:selectItems
+                                    value="#{problemReport.priorityItems}"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="severity" styleClass="error"/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row form-group">
+                    <div class="col-md-8">
+                        <label><h:outputText value="#{msg.d_assigned}"/></label>
+                    </div>
+                    <div class="col-md-4">
+                        <h:inputText required="true" id="dateAssigned"
+                                     value="#{problemReport.dateAssigned}"
+                                     styleClass="form-control"
+                        >
+                            <f:convertDateTime pattern="dd MMM YY"/>
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="dateAssigned" styleClass="error"/>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label><h:outputText
+                                value="#{msg.d_fix}"/></label>
+                    </div>
+                    <div class="col-md-6">
+                        <h:inputText required="true"
+                                     id="dataFixed"
+                                     value="#{problemReport.dateFixed}"
+                                     styleClass="form-control"
+                        >
+                            <f:convertDateTime pattern="dd MMM YY"/>
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <h:message for="dataFixed" styleClass="error"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h:commandButton value="#{msg.submit}"
+                             class="btn btn-primary"
+                             action="#{problemReport.submit}"/>
+        </div>
+
+    </div>
+    <div class="col-md-2"></div>
+
+    <div style="display: none">
+        <h:messages/>
+    </div>
+</h:form>
+</body>
+</html>
