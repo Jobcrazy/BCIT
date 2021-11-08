@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/vision"
+            android:checked="true"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:title="@string/title_vision" />
+
+        <item
+            android:id="@+id/mission"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:title="@string/title_mission" />
+
+        <item
+            android:id="@+id/strategic_plan"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:title="@string/title_strategic_plan" />
+    </group>
+</menu>

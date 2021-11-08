@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BC Institute of Technology</string>
+    <string name="title_vision">Vision</string>
+    <string name="title_mission">Mission</string>
+    <string name="title_strategic_plan">Strategic Plan</string>
+
+    <string name="developer">Hang Liu A01173804</string>
+
+    <string name="nav_open_drawer">Open Navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
+
+    <string name="vision">Empowering People.\nShaping BC.\nInspiring Global Progress.</string>
+    <string name="mission">Partnering learners and industry for success through workforce development.</string>
+    <string name="strategic_plan">We are intent on being a people-focused organization that delivers future-proof applied education, amplifying our impact through globally relevant connections.</string>
+</resources>

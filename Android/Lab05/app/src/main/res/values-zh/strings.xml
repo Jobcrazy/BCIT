@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">英属哥伦比亚理工学院</string>
+    <string name="title_vision">愿景</string>
+    <string name="title_mission">目标</string>
+    <string name="title_strategic_plan">战略</string>
+
+    <string name="developer">刘航 A01173804</string>
+
+    <string name="nav_open_drawer">打开侧边栏</string>
+    <string name="nav_close_drawer">关闭侧边栏</string>
+
+    <string name="vision">赋能全人类；\n塑造BC省；\n激励全球进步。</string>
+    <string name="mission">与学习者和行业合作，通过劳动力发展取得成功。</string>
+    <string name="strategic_plan">我们致力于成为一个以人为本的组织，提供面向未来的应用教育，通过全球相关的联系扩大我们的影响。</string>
+</resources>
