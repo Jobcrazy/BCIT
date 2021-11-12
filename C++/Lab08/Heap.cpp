@@ -25,25 +25,6 @@ Patient Heap::pop() {
     Patient patient = heap[size()];
     heap.pop_back();
 
-    /*
-    index parent = 1;
-    index max_index = 0;
-    do {
-        index left = parent * 2;
-        index right = parent * 2 + 1;
-        max_index = max(parent, left, right);
-
-        if (parent != max_index){
-            std::swap(heap[parent], heap[max_index]);
-        }
-
-        parent = max_index;
-        left = parent * 2;
-        right = parent * 2 + 1;
-        max_index = max(parent, left, right);
-    } while (parent != max_index);
-     */
-
     heapify();
 
     return patient;
@@ -71,8 +52,6 @@ Heap::index Heap::size() const {
 
 void Heap::clear() {
     heap.clear();
-
-    heap.emplace_back(DEFAULT_NAME, 0);
 }
 
 bool Heap::is_empty() const {
@@ -83,7 +62,12 @@ bool Heap::is_empty() const {
 }
 
 void Heap::print_all() const {
-    std::cout << "Current Patients:" << std::endl;
+    if (1 == heap.size()){
+        std::cout << "No patients remained." << std::endl;
+        return;
+    }
+
+    std::cout << "Remained Patients:" << std::endl;
     for (const Patient &patient: heap) {
         if (0 != patient.getPriority())
             std::cout << patient << std::endl;

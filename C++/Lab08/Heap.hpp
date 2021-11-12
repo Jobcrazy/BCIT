@@ -51,7 +51,7 @@ public:
     void print_all() const;
 
     // The destructor
-    ~Heap() { heap.clear(); }
+    ~Heap() { clear(); }
 
 private:
     // Determine which element is with the greatest priority number
