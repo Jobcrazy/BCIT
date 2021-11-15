@@ -1,0 +1,16 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.2">
+    <persistence-unit name="timesheet-jpa">
+        <jta-data-source>java:jboss/datasources/timesheet</jta-data-source>
+        <class>ca.bcit.infosys.model.employee.EmployeeModel</class>
+        <class>ca.bcit.infosys.model.timesheet.TimesheetModel</class>
+        <class>ca.bcit.infosys.model.timesheet.TimesheetRowModel</class>
+
+        <properties>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

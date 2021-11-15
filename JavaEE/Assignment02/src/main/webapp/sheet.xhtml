@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="templates/template.xhtml">
+    <ui:define name="banner">
+        <div style="float: left;">
+            <h3>
+                <h:outputText
+                        value="#{msg.year}: #{tController.currentYear} - #{msg.week}: #{tController.currentWeek}"/>
+            </h3>
+        </div>
+
+        <div style="text-align: right;padding-top: 15px;padding-right: 15px;">
+            <h:form>
+                <p:datePicker id="basic" value="#{tController.date}"
+                              showButtonBar="true"/>&nbsp;
+                <p:commandButton action="#{tController.searchTimesheet}"
+                                 value="#{msg.search}"
+                                 styleClass="ui-button-outlined"/>
+            </h:form>
+        </div>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true"/>
+
+            <div>
+                <p:dataTable var="row"
+                             value="#{tController.currentTimesheet.details}"
+                             editable="true">
+
+                    <p:ajax event="rowEdit" listener="#{tController.onRowEdit}"
+                            update=":form:msgs,:form:total,:form:totalSun,
+                                    :form:totalMon,:form:totalTue,:form:totalWen,
+                                    :form:totalThu,:form:totalFri,:form:totalSat"/>
+
+                    <p:column headerText="#{msg.project}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.projectId}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        value="#{row.projectId}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.workPackage}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.workPackageId}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText
+                                        value="#{row.workPackageId}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.total}">
+                        <h:outputText value="#{row.sum}"/>
+                    </p:column>
+
+                    <p:column headerText="#{msg.sunday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[0]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        id="sat"
+                                        value="#{row.hours[0]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.monday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[2]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[2]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.tuesday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[3]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[3]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.wednesday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[4]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[4]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.thursday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[5]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[5]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.friday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[6]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[6]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.saturday}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.hours[1]}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputNumber
+                                        minValue="0.0"
+                                        maxValue="24.0"
+                                        value="#{row.hours[1]}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="#{msg.notes}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{row.notes}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText
+                                        value="#{row.notes}"
+                                        style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column>
+                        <p:rowEditor editTitle="#{msg.editRow}"
+                                     cancelTitle="#{msg.cancelEdit}"
+                                     saveTitle="#{msg.saveRow}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+
+            <div style="margin-bottom: 5px; padding-bottom: 15px;">
+                <div class="sheetColumn">
+                    <p:outputLabel value="#{msg.total}"/>
+                </div>
+                <div class="sheetColumn">
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="total"
+                                   value="#{tController.currentTimesheet.totalHours}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalSun"
+                                   value="#{tController.currentTimesheet.dailyHours[0]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalMon"
+                                   value="#{tController.currentTimesheet.dailyHours[2]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalTue"
+                                   value="#{tController.currentTimesheet.dailyHours[3]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalWen"
+                                   value="#{tController.currentTimesheet.dailyHours[4]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalThu"
+                                   value="#{tController.currentTimesheet.dailyHours[5]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalFri"
+                                   value="#{tController.currentTimesheet.dailyHours[6]}"/>
+                </div>
+                <div class="sheetColumn">
+                    <p:outputLabel id="totalSat"
+                                   value="#{tController.currentTimesheet.dailyHours[1]}"/>
+                </div>
+                <p:divider/>
+            </div>
+
+            <div style="padding-top: 15px;">
+                <p:commandButton action="#{tController.addTimesheetRow}"
+                                 value="#{msg.newRow}"
+                                 styleClass="ui-button-outlined"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
