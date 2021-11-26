@@ -26,6 +26,7 @@ CREATE TABLE `employee` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `employee` (`number`, `username`, `password`, `name`, `admin`) VALUES
+<<<<<<< HEAD
 (1, 'admin', 'admin', NULL, 1),
 (2, 'cst', 'cst', NULL, 0);
 
