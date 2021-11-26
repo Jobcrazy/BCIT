@@ -14,7 +14,7 @@ private:
     const int ITERATIONS{1000};
     const int PARENT_POOL_SIZE{5};
     const double MUTATION_RATE{0.15};
-    const double IMPROVEMENT_FACTOR{0.08};
+    const double IMPROVEMENT_FACTOR{0.1};
     typedef std::vector<Tour>::iterator tourIt;
     std::vector<City> cities;
 

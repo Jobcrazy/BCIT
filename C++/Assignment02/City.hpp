@@ -8,7 +8,6 @@
 
 class City {
 private:
-    static constexpr double MAP_BOUNDARY{1000};
     std::string name;
     double x;
     double y;
@@ -16,7 +15,7 @@ private:
 public:
     // The constructor
     // PRE: name is the city's name
-    explicit City(std::string name);
+    explicit City(std::string name, double x, double y);
 
     // Get the x location of the city
     // POST: nothing has been changed

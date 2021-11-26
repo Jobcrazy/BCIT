@@ -54,23 +54,33 @@ Tour GeneticAlgorithm::getBestTour() const {
         {
             std::cout << "Iteration number: " << itNumber << std::endl;
 
-            std::cout << "Improved: " << std::boolalpha << improved;
+            std::cout << "Improved of current iteration: " << std::boolalpha
+                      << improved;
             if (improved) {
                 std::cout << " (" << improvement * 100 << "%)" << std::endl;
             } else {
                 std::cout << std::endl;
             }
 
-            std::cout << "Previous best distance: " << oldElite->getTourDistance() <<
-                      " -- Current best distance: " << newElite->getTourDistance() <<
+            std::cout << "Best distance before this iteration: "
+                      << oldElite->getTourDistance() <<
+                      " -- Best distance of this iteration: "
+                      << newElite->getTourDistance() <<
                       std::endl;
 
             std::cout << "Best distance so far: " <<
                       newElite->getTourDistance() << std::endl;
 
+            std::cout << "The Original best distance before loop: " <<
+                      originalDistance << std::endl;
+
             std::cout << "Improvement over base so far: " <<
-                      originalDistance - elite->getTourDistance() <<
-                      std::endl << std::endl;
+                      originalDistance << " - " <<
+                      elite->getTourDistance() << " = "
+                      << originalDistance - elite->getTourDistance()
+                      << " (Percentage:" << (originalDistance -
+                      elite->getTourDistance()) / originalDistance * 100 << "%"
+                      << ")" << std::endl << std::endl;
         }
     }
 

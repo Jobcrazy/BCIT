@@ -3,16 +3,10 @@
 //
 
 #include <iostream>
-#include <utility>
 #include "City.hpp"
-#include "RandomNumber.hpp"
 
-City::City(std::string name) :
-        name(std::move(name)),
-        x(RandomNumber::getInstance().getRandomDouble(0, MAP_BOUNDARY)),
-        y(RandomNumber::getInstance().getRandomDouble(0, MAP_BOUNDARY)) {
-
-}
+City::City(std::string name, double x, double y) :
+        name(std::move(name)), x(x), y(y) {}
 
 std::ostream &operator<<(std::ostream &os, const City &city) {
     os <<
