@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">COMP3717 Final</string>
+    <string name="title">Examen final 202130</string>
+    <string name="nav_open_drawer">Open Navigation drawer</string>
+    <string name="nav_close_drawer">Close navigation drawer</string>
+
+    <string name="student_id">A01173804</string>
+    <string name="student_name">Hang Liu</string>
+
+    <!-- GitHub fragment -->
+    <string name="git_hub">Git Hub</string>
+
+    <!-- Movie fragment labels -->
+    <string name="fav_movie">Film préféré</string>
+    <string name="movie_name_label">Nom:\u0020</string>
+    <string name="movie_year_label">Année:\u0020</string>
+    <string name="movie_story_label">Histoire:\u0020</string>
+    <string name="movie_director_label">Réalisatrice:\u0020</string>
+    <string name="movie_actors_label">Acteurs:\u0020</string>
+
+    <!-- Movie fragment text -->
+    <string name="movie_name_text">Le son de la musique</string>
+    <string name="movie_year_text">1965</string>
+    <string name="movie_story_text">
+        Maria est une jeune femme autrichienne à l\'esprit libre qui étudie de devenir une religieuse à l\'abbaye de Nomberg à Salzbourg en 1938. Son enthousiasme juvénile et son manque de discipline provoquent une certaine préoccupation. La mère Abbess envoie Maria à la villa du capitaine du capitaine de l\'officier naval à la retraite, Georg von Trapp à ses sept enfants-Liesl, Friedrich, Louisa, Kurt, Brigitta, Marta et Gretl. Le capitaine a sensibilisé ses enfants seuls en utilisant une discipline militaire stricte à la suite de la mort de sa femme. Bien que les enfants se conduisent mal au début, Maria répond avec gentillesse et patience, et bientôt les enfants viennent faire confiance à la confiance et la respectent.
+    </string>
+    <string name="movie_director_text">Robert Wise</string>
+    <string name="movie_actors_text">Julie Andrews, Christopher Plummer, Eleanor Parker</string>
+
+    <!-- Dino fragment -->
+    <string name="dino">Dino</string>
+</resources>
