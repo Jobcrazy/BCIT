@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A01173804</title>
+    <style>
+      .center {
+        text-align: center;
+        margin: 0 auto;
+        width: 700px;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./jquery-3.6.0.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="center">
+      <h1>Hang Liu - A01173804</h1>
+    </div>
+
+      <div id="pie_chart_div" class="center"></div>
+  </body>
+  <script type="text/javascript">
+    google.charts.load("current", {
+      packages: ["corechart", "bar"],
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var jsonData = $.ajax({
+        url: "http://localhost:5033/api/Games/summary",
+        dataType: "json",
+        async: false,
+      }).responseText;
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+      var options = {
+        title: "Olympic games by continent",
+        width: 700,
+        height: 800,
+      };
+      var chart = new google.visualization.PieChart(
+        document.getElementById("pie_chart_div")
+      );
+      chart.draw(data, options);
+    }
+  </script>
+</html>
