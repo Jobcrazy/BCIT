@@ -1,0 +1,38 @@
+﻿@page "/remove/{Id}"
+@using ServerBlazorEF.Data
+@using ServerBlazorEF.Models
+@inject StudentService studentService
+@inject NavigationManager NavigationManager
+<h1>Remove a Students</h1>
+
+
+@if (student != null)
+{
+  <span>First Name: @student.FirstName</span><br />
+  <span>Last Name: @student.LastName</span><br />
+  <span>School: @student.School</span><br />
+  <button @onclick="@Remove" class="btnbtn-warning">Remove</button>
+}
+
+@code {
+  [Parameter]
+  public String Id { get; set; }
+
+  Student student;
+
+  protected override async Task OnInitializedAsync()
+  {
+    await load();
+  }
+
+  protected async Task load()
+  {
+    student = await studentService.GetStudentByIdAsync(Id);
+  }
+
+  protected async Task Remove()
+  {
+    await studentService.DeleteStudentAsync(student.StudentId);
+    NavigationManager.NavigateTo("");
+  }
+}

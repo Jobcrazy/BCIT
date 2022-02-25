@@ -1,0 +1,42 @@
+﻿@page "/add"
+@using ServerBlazorEF.Data
+@using ServerBlazorEF.Models
+@inject StudentService studentService
+@inject NavigationManager NavigationManager
+<h1>Add a Students</h1>
+
+
+<input placeholder="First Name" @bind="@firstName" /><br />
+<input placeholder="Last Name" @bind="@lastName" /><br />
+<input placeholder="School" @bind="@school" /><br />
+<button @onclick="@Insert" class="btnbtn-warning">Insert</button>
+
+@code {
+  String? studentId;
+  String? firstName;
+  String? lastName;
+  String? school;
+
+  protected async Task Insert()
+  {
+    Student s = new Student
+    {
+      StudentId = Guid.NewGuid().ToString(),
+      FirstName = firstName,
+      LastName = lastName,
+      School = school
+    };
+
+    await studentService.InsertStudentAsync(s);
+    ClearFields();
+    NavigationManager.NavigateTo("");
+  }
+
+  protected void ClearFields()
+  {
+    studentId = string.Empty;
+    firstName = string.Empty;
+    lastName = string.Empty;
+    school = string.Empty;
+  }
+}

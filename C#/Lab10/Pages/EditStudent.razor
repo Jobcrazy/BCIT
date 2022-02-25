@@ -1,0 +1,38 @@
+﻿@page "/edit/{Id}"
+@using ServerBlazorEF.Data
+@using ServerBlazorEF.Models
+@inject StudentService studentService
+@inject NavigationManager NavigationManager
+<h1>Edit a Students</h1>
+
+
+@if (student != null)
+{
+  <input placeholder="First Name" @bind="@student.FirstName" /><br />
+  <input placeholder="Last Name" @bind="@student.LastName" /><br />
+  <input placeholder="School" @bind="@student.School" /><br />
+  <button @onclick="@Update" class="btnbtn-warning">Update</button>
+}
+
+@code {
+  [Parameter]
+  public String Id { get; set; }
+
+  Student student;
+
+  protected override async Task OnInitializedAsync()
+  {
+    await load();
+  }
+
+  protected async Task load()
+  {
+    student = await studentService.GetStudentByIdAsync(Id);
+  }
+
+  protected async Task Update()
+  {
+    await studentService.UpdateStudentAsync(student.StudentId, student);
+    NavigationManager.NavigateTo("");
+  }
+}
