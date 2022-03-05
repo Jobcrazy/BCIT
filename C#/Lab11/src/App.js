@@ -17,8 +17,8 @@ function App() {
           <Route path="/" element={<Home />} exact />
           <Route path="/Privacy" element={<Privacy />} exact />
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
