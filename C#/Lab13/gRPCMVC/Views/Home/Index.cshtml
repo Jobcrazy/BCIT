@@ -1,0 +1,43 @@
+﻿@using GrpcServer.Protos
+@{
+    ViewData["Title"] = "Home Page";
+    StudentList students = @ViewData["students"] as StudentList;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hang Liu A01173804</h1>
+    <div>
+        <a asp-controller="Home" asp-action="Add">Add a new student</a>
+    </div>
+</div>
+
+<table style="width:80%; margin: 0 auto;">
+    <th>Student ID</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>School</th>
+    <th>Actions</th>
+
+    @foreach (var item in students!.Items)
+    {
+        <tr>
+            <td>
+                @item.StudentId
+            </td>
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                @item.FirstName
+            </td>
+            <td>
+                @item.School
+            </td>
+            <td>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.StudentId">Edit</a>
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
