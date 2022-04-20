@@ -1,0 +1,97 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>COMP4514 Final Exam - Winter 2022</PageTitle>
+
+<h1>COMP4514 Final Exam - Winter 2022</h1>
+<h4>Hang Liu - A01173804</h4>
+
+<p>NHL Player Ranking</p>
+
+@if (players == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <p>
+        <EditForm Model="@players">
+            <InputSelect @bind-Value="@Country">
+                @foreach (var country in Countries)
+                {
+                <option value="@country">@country</option>
+                }
+            </InputSelect>
+    </EditForm>
+    </p>
+
+    <p>
+        <button @onclick="@GetByCountry">Get Players</button>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>From</th>
+                <th>Name</th>
+                <th>Team</th>
+                <th>Age</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in players)
+            {
+                <tr>
+                    <td>@player.Rank</td>
+                    <td>@player.From</td>
+                    <td>@player.FirstName @player.LastName</td>
+                    <td>@player.Team</td>
+                    <td>@player.Age</td>
+                    <td>@player.Position</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Player[]? players;
+    private string Country = "Canada";
+    private string[] Countries = {
+        "Canada",
+        "Czeck Republic",
+        "Finland",
+        "Germany",
+        "Norway",
+        "Russia",
+        "Sweden",
+        "Switzerland",
+        "USA"
+        };
+    private string baseURL = "http://localhost:7071/";
+
+    protected override async Task OnInitializedAsync()
+    {
+        players = await Http.GetFromJsonAsync<Player[]>(baseURL + "api/players");
+    }
+
+    protected async Task GetByCountry()
+    {
+        players = await Http.GetFromJsonAsync<Player[]>(baseURL + "api/players/country/" + Country);
+    }
+
+    public class Player
+    {
+        public int PlayerId { get; set; }
+        public int Rank { get; set; }
+        public string From { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Team { get; set; }
+        public int Age { get; set; }
+        public string Position { get; set; }
+
+    }
+}
